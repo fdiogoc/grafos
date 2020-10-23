@@ -1,15 +1,17 @@
 
 package grafos.src;
+
 import java.util.*;
 
-class Graph {
+// https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
+// https://www.geeksforgeeks.org/add-and-remove-edge-in-adjacency-list-representation-of-a-graph/
+public class Graph {
 
     // No. of vertices
     private int V;
 
     // Adjacency List Represntation
     private LinkedList<Integer> adj[];
-
 
     // Constructor
     @SuppressWarnings("unchecked")
@@ -19,7 +21,6 @@ class Graph {
         for (int i = 0; i < v; ++i)
             adj[i] = new LinkedList<Integer>();
 
- 
     }
 
     // ADD EDGE
@@ -28,6 +29,7 @@ class Graph {
         adj[w].add(v);
 
     }
+
     // DELETE EDGE
     void delEdge(int v, int w) {
         // Traversing through the first vector list
@@ -77,7 +79,7 @@ class Graph {
 
         }
         System.out.print(count);
-        
+
     }
 
     // A recursive function that
@@ -131,7 +133,7 @@ class Graph {
             // Don't recur for u if already visited
             if (!visited[u])
                 if (isCyclicUtil(u, visited, -1)) {
-                    
+
                     return true;
                 }
         }
@@ -139,43 +141,6 @@ class Graph {
         return false;
     }
 
-    
-    public static Graph addCheckRemoveCycle(Graph graph, int x, int y) {
-       
-        graph.addEdge(x, y);
-
-        if (graph.isCyclic()) {
-            graph.connectedComponents();
-            System.out.print(" CICLO FORMADO!");
-            System.out.println();
-            graph.delEdge(x, y);
-
-        }else{
-            graph.connectedComponents();
-            System.out.println();
-        }
-
-       
-        return graph;
-
-    }
-
-
-
     public static void main(String args[]) {
-
-
-        Graph g1 = new Graph(9);
-        g1 = addCheckRemoveCycle(g1, 1, 2);
-        g1 = addCheckRemoveCycle(g1, 3, 4);
-        g1 = addCheckRemoveCycle(g1, 1, 3);
-        g1 = addCheckRemoveCycle(g1, 2, 3);
-        g1 = addCheckRemoveCycle(g1, 3, 8);
-        g1 = addCheckRemoveCycle(g1, 5, 6);
-        g1 = addCheckRemoveCycle(g1, 6, 7);
-        g1 = addCheckRemoveCycle(g1, 5, 7);
-        g1 = addCheckRemoveCycle(g1, 4, 8);
-        g1 = addCheckRemoveCycle(g1, 3, 5);
-
     }
 }
