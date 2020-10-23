@@ -4,7 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class App {
+public class ComponenteConexa {
 
     // ESTA CLASSE ADICIONA, VERIFICA SE O CICLO FOI FORMADO, CASO SIM O REMOVE
     public static Graph addCheckRemoveCycle(Graph graph, int x, int y) {
@@ -39,12 +39,8 @@ public class App {
                     g1 = new Graph(Integer.parseInt(object[0]) + 1);
                 } else {
                     String array1[] = line.split(" ");
-                    // for (String temp: array1){
-                    // // System.out.println(temp);
-
                     g1 = addCheckRemoveCycle(g1, Integer.parseInt(array1[0]), Integer.parseInt(array1[1]));
 
-                    // }
                 }
 
                 index++;

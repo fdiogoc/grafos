@@ -1,14 +1,13 @@
-## Getting Started
+## Grafos COMP3020 - DIOGO CARDOSO FERNANDES
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Neste github estão todos os trabalhos da disciplina de grafos.
 
-## Folder Structure
+## 1a. Atividade Avaliativa - Componente Conexa
 
-The workspace contains two folders by default, where:
+Abra o aquivo `ComponenteConexa.java` para alterar o aquivo de execuao, execute o arquivo `ComponenteConexa.java` para rodar os casos de teste.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 2a. Atividade Avaliativa Presencial - Novo Projeto
 
-## Dependency Management
+## 3a. Atividade Avaliativa Presencial - Empresa Logística
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+## 4a. Atividade Avaliativa Presencial - Árvores AVLs
