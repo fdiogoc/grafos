@@ -65,7 +65,7 @@ public class Graph {
 
     }
 
-    void connectedComponents() {
+    int connectedComponents() {
         // Mark all the vertices as not visited
         boolean[] visited = new boolean[V];
         int count = 0;
@@ -78,7 +78,7 @@ public class Graph {
             }
 
         }
-        System.out.print(count);
+       return count;
 
     }
 

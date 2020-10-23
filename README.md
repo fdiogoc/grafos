@@ -4,7 +4,7 @@ Neste github estão todos os trabalhos da disciplina de grafos.
 
 ## 1a. Atividade Avaliativa - Componente Conexa
 
-Abra o aquivo `ComponenteConexa.java` para alterar o aquivo de execuao, execute o arquivo `ComponenteConexa.java` para rodar os casos de teste.
+Ao executar o arquivo `ComponenteConexa.java` para rodar os casos de teste, o programa irá gerar um output para cada arquivo na pasta assets/componenteConexa.
 
 ## 2a. Atividade Avaliativa Presencial - Novo Projeto
 
