@@ -9,15 +9,20 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 /**
- * ESTA CLASSE CRIA O GRAPO A PARTIR DOS ARQUIVOS E GERA O OUTPUT DESEJADO.
+ * ESTA CLASSE CRIA O GRAFO A PARTIR DOS ARQUIVOS E GERA O OUTPUT DESEJADO.
  **/
 
 final class ComponenteConexa {
-    // LOCAL DOS ARQUIVOS DE TESTE
+
     static final String COMPONENT_PATH = "/home/fdiogoc/unifil/grafos/terceiroTRAB/assets/componenteConexa";
 
+
+    private ComponenteConexa() {
+        super();
+    }
+
     /**
-     * ESTA CLASSE ADICIONA, VERIFICA SE O CICLO FOI FORMADO, CASO SIM O REMOVE E
+     * ESTA CLASSE ADICIONA UMA ARESTA, VERIFICA SE O CICLO FOI FORMADO, CASO SIM O REMOVE E
      * RETORNA UMA STRING.
      *
      * @param graph - grafo que irá ser utilizado
@@ -25,17 +30,6 @@ final class ComponenteConexa {
      * @param y     - valor da aresta y sendo adicionada
      * @return retorna uma string, com o valor de Componente conexas, e CICLO
      *         FORMADO, caso um ciclo tenha sido formado.
-     */
-
-    private ComponenteConexa() {
-        super();
-    }
-
-    /**
-     * @param graph
-     * @param x
-     * @param y
-     * @return String
      */
 
     public static String addCheckRemoveCycle(Graph graph, int x, int y) {
