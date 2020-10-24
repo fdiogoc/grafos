@@ -1,4 +1,4 @@
-package grafos.lib;
+package grafos.src.main.java.unifil.lib;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,10 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class utils {
-    
+/**
+ * * Métodos extraidos para não repetir código WIP.
+*/
 
+public final class Utils {
+
+    /**
+     * @param dirPath
+     * @return List<File>
+     */
+    private Utils() {
+        super();
+    }
+
+    /**
+     * @param dirPath
+     * @return List<File>
+     */
     // LE OS ARQUIVOS DA PASTA E RETORNA UMA LISTA DE ARQUIVOS
+
     public static List<File> readFilesFromDir(String dirPath) {
         List<File> filesInFolder = new ArrayList<File>();
 

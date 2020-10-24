@@ -1,28 +1,38 @@
-
-package grafos.src;
+package grafos.src.main.java.unifil;
 
 import java.util.*;
 
-// https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
-// https://www.geeksforgeeks.org/add-and-remove-edge-in-adjacency-list-representation-of-a-graph/
-public class Graph {
+/**
+ * MATERIAL UTILIZZADO.
+ * https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
+ * https://www.geeksforgeeks.org/add-and-remove-edge-in-adjacency-list-representation-of-a-graph/
+ */
 
+public class Graph {
     // No. of vertices
-    private int V;
+    private int vn;
 
     // Adjacency List Represntation
-    private LinkedList<Integer> adj[];
+    private LinkedList<Integer>[] adj;
 
-    // Constructor
+
+    /**
+     * Constructor.
+     */
     @SuppressWarnings("unchecked")
     Graph(int v) {
-        V = v;
+        vn = v;
         adj = new LinkedList[v];
-        for (int i = 0; i < v; ++i)
+        for (int i = 0; i < v; ++i) {
             adj[i] = new LinkedList<Integer>();
+        }
 
     }
 
+    /**
+     * @param v
+     * @param w
+     */
     // ADD EDGE
     void addEdge(int v, int w) {
         adj[v].add(w);
@@ -30,6 +40,10 @@ public class Graph {
 
     }
 
+    /**
+     * @param v
+     * @param w
+     */
     // DELETE EDGE
     void delEdge(int v, int w) {
         // Traversing through the first vector list
@@ -52,41 +66,55 @@ public class Graph {
 
     }
 
-    void DFSUtil(int v, boolean[] visited) {
+    /**
+     * @param v
+     * @param visited
+     */
+    void dfsUtil(int v, boolean[] visited) {
         // Mark the current node as visited and print it
         visited[v] = true;
         // System.out.print(v+" ");
         // Recur for all the vertices
         // adjacent to this vertex
         for (int x : adj[v]) {
-            if (!visited[x])
-                DFSUtil(x, visited);
+            if (!visited[x]) {
+                dfsUtil(x, visited);
+            }
+
         }
 
     }
 
+    /**
+     * @return int
+     */
     int connectedComponents() {
         // Mark all the vertices as not visited
-        boolean[] visited = new boolean[V];
+        boolean[] visited = new boolean[vn];
         int count = 0;
-        for (int v = 1; v < V; ++v) {
+        for (int v = 1; v < vn; ++v) {
             if (!visited[v]) {
                 ++count;
                 // print all reachable vertices
                 // from v
-                DFSUtil(v, visited);
+                dfsUtil(v, visited);
             }
 
         }
-       return count;
+        return count;
 
     }
 
-    // A recursive function that
-    // uses visited[] and parent to detect
-    // cycle in subgraph reachable
-    // from vertex v.
-    Boolean isCyclicUtil(int v, Boolean visited[], int parent) {
+    /** A recursive function that uses visited[]
+     * and parent to detect cycle in subgraph
+     * reachable from vertex v.
+     * @param v
+     * @param visited - visited list
+     * @param parent
+     * @return Boolean
+     */
+
+    Boolean isCyclicUtil(int v, Boolean[] visited, int parent) {
         // Mark the current node as visited
         visited[v] = true;
         Integer i;
@@ -100,20 +128,24 @@ public class Graph {
             // If an adjacent is not
             // visited, then recur for that
             // adjacent
-            if (!visited[i]) {
-                if (isCyclicUtil(i, visited, v))
-                    return true;
-            }
-
             // If an adjacent is visited
             // and not parent of current
             // vertex, then there is a cycle.
-            else if (i != parent)
+            if (!visited[i]) {
+                if (isCyclicUtil(i, visited, v)) {
+                    return true;
+                }
+            } else if (i != parent) {
                 return true;
+            }
+
         }
         return false;
     }
 
+    /**
+     * @return Boolean
+     */
     // Returns true if the graph
     // contains a cycle, else false.
     Boolean isCyclic() {
@@ -121,26 +153,28 @@ public class Graph {
         // Mark all the vertices as
         // not visited and not part of
         // recursion stack
-        Boolean visited[] = new Boolean[V];
-        for (int i = 0; i < V; i++)
+        Boolean[] visited = new Boolean[vn];
+        for (int i = 0; i < vn; i++) {
             visited[i] = false;
+        }
+
 
         // Call the recursive helper
         // function to detect cycle in
         // different DFS trees
-        for (int u = 0; u < V; u++) {
+        for (int u = 0; u < vn; u++) {
 
             // Don't recur for u if already visited
-            if (!visited[u])
+            if (!visited[u]) {
                 if (isCyclicUtil(u, visited, -1)) {
 
                     return true;
                 }
+            }
+
         }
 
         return false;
     }
 
-    public static void main(String args[]) {
-    }
 }
