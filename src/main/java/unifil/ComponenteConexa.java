@@ -1,6 +1,6 @@
-package grafos.src.main.java.unifil;
+package unifil;
 
-import grafos.src.main.java.unifil.lib.Utils;
+import unifil.lib.Utils;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

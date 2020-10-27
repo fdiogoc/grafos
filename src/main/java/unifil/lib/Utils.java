@@ -1,4 +1,4 @@
-package grafos.src.main.java.unifil.lib;
+package unifil.lib;
 
 import java.io.File;
 import java.io.IOException;

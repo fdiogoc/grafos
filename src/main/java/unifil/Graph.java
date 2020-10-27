@@ -1,4 +1,4 @@
-package grafos.src.main.java.unifil;
+package unifil;
 
 import java.util.*;
 
