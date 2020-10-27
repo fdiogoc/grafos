@@ -16,14 +16,13 @@ final class ComponenteConexa {
 
     static final String COMPONENT_PATH = "/home/fdiogoc/unifil/grafos/grafos/assets/componenteConexa";
 
-
     private ComponenteConexa() {
         super();
     }
 
     /**
-     * ESTA CLASSE ADICIONA UMA ARESTA, VERIFICA SE O CICLO FOI FORMADO, CASO SIM O REMOVE E
-     * RETORNA UMA STRING.
+     * ESTA CLASSE ADICIONA UMA ARESTA, VERIFICA SE O CICLO FOI FORMADO, CASO SIM O
+     * REMOVE E RETORNA UMA STRING.
      *
      * @param graph - grafo que irá ser utilizado
      * @param x     - valor da aresta x sendo adicionada
@@ -54,6 +53,7 @@ final class ComponenteConexa {
         // ITERA TODOS ARQUIVOS DA PASTA
         for (File file : Utils.readFilesFromDir(COMPONENT_PATH)) {
             if (file.isFile()) {
+
                 BufferedWriter writer = new BufferedWriter(
                         new FileWriter(COMPONENT_PATH + "/output/out_" + file.getName()));
                 Graph g1 = new Graph(0);
@@ -72,8 +72,10 @@ final class ComponenteConexa {
 
                         index++;
                     }
+                } finally {
+                    writer.close();
                 }
-                writer.close();
+
             }
         }
     }
