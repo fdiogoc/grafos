@@ -35,7 +35,7 @@ final class ComponenteConexa {
     public static String addCheckRemoveCycle(Graph graph, int x, int y) {
 
         graph.addEdge(x, y);
-        if (graph.isCyclic()) {
+        if (Boolean.TRUE.equals(graph.isCyclic())) {
             graph.delEdge(x, y);
             return String.valueOf(graph.connectedComponents()) + " CICLO FORMADO!";
         } else {
