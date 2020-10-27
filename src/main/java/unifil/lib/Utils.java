@@ -39,6 +39,9 @@ public final class Utils {
 
             e.printStackTrace();
         }
+        finally{
+
+        }
         return filesInFolder;
     }
 
