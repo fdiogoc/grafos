@@ -24,7 +24,7 @@ public class Graph {
         vn = v;
         adj = new LinkedList[v];
         for (int i = 0; i < v; ++i) {
-            adj[i] = new LinkedList<Integer>();
+            adj[i] = new LinkedList<>();
         }
 
     }
@@ -73,7 +73,7 @@ public class Graph {
     void dfsUtil(int v, boolean[] visited) {
         // Mark the current node as visited and print it
         visited[v] = true;
-        // System.out.print(v+" ");
+
         // Recur for all the vertices
         // adjacent to this vertex
         for (int x : adj[v]) {
