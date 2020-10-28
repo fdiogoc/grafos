@@ -67,6 +67,7 @@ public class Graph {
 
     /**
      * DEEP FIRST
+     *
      * @param v
      * @param visited
      */
@@ -201,11 +202,10 @@ public class Graph {
         return false;
     }
 
-    int biggerComponentSize() {
-        int size = 0;
-        // Mark all the vertices as
-        // not visited and not part of
-        // recursion stack
+    Queue<Integer> componentsSize() {
+
+        Queue<Integer> result = new LinkedList<>();
+
         Boolean[] visited = new Boolean[vn];
         for (int i = 0; i < vn; i++) {
             visited[i] = false;
@@ -216,16 +216,26 @@ public class Graph {
             if (!visited[u]) {
                 int s = 0;
 
-                // DFS algorithm
                 s = dfsUtil(u, visited, s);
-                if (s > size) {
-                    size = s;
-                }
+                result.add(s);
+
             }
 
         }
-        return size;
+        return result;
 
     }
+
+    int biggerComponentSize() {
+        int size = 0;
+        for (Integer i : componentsSize()) {
+            if (i > size) {
+                size = i;
+            }
+        }
+        return size;
+    }
+
+
 
 }
