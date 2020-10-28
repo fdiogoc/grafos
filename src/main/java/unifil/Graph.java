@@ -15,7 +15,6 @@ public class Graph {
     // Adjacency List Represntation
     private LinkedList<Integer>[] adj;
 
-
     /**
      * Constructor.
      */
@@ -73,7 +72,7 @@ public class Graph {
     void dfsUtil(int v, boolean[] visited) {
         // Mark the current node as visited and print it
         visited[v] = true;
-
+        // System.out.print(v + " ");
         // Recur for all the vertices
         // adjacent to this vertex
         for (int x : adj[v]) {
@@ -82,6 +81,30 @@ public class Graph {
             }
 
         }
+
+    }
+
+    /**
+     * MESMO METODO COM OVERLOAD PARA VOLTAR TAMANHO
+     *
+     * @param v
+     * @param visited
+     * @param ans     - tamanho do atual component
+     */
+    int dfsUtil(int v, Boolean[] visited, int ans) {
+        // Mark the current node as visited and print it
+        visited[v] = true;
+        // System.out.print(v + " ");
+        ans++;
+        // Recur for all the vertices
+        // adjacent to this vertex
+        for (int x : adj[v]) {
+            if (!visited[x]) {
+                ans = dfsUtil(x, visited, ans);
+            }
+
+        }
+        return ans;
 
     }
 
@@ -105,9 +128,10 @@ public class Graph {
 
     }
 
-    /** A recursive function that uses visited[]
-     * and parent to detect cycle in subgraph
-     * reachable from vertex v.
+    /**
+     * A recursive function that uses visited[] and parent to detect cycle in
+     * subgraph reachable from vertex v.
+     *
      * @param v
      * @param visited - visited list
      * @param parent
@@ -158,7 +182,6 @@ public class Graph {
             visited[i] = false;
         }
 
-
         // Call the recursive helper
         // function to detect cycle in
         // different DFS trees
@@ -175,6 +198,33 @@ public class Graph {
         }
 
         return false;
+    }
+
+    int biggerComponentSize() {
+        int size = 0;
+        // Mark all the vertices as
+        // not visited and not part of
+        // recursion stack
+        Boolean[] visited = new Boolean[vn];
+        for (int i = 0; i < vn; i++) {
+            visited[i] = false;
+        }
+
+        for (int u = 0; u < vn; u++) {
+
+            if (!visited[u]) {
+                int s = 0;
+
+                // DFS algorithm
+                s = dfsUtil(u, visited, s);
+                if (s > size) {
+                    size = s;
+                }
+            }
+
+        }
+        return size;
+
     }
 
 }
