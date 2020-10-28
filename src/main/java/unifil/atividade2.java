@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 final class atividade2 {
 
-    static final String COMPONENT_PATH = "/home/fdiogoc/unifil/grafos/grafos/assets/atividade2";
+    static final String COMPONENT_PATH = "./assets/atividade2";
 
     private atividade2() {
         super();

@@ -66,6 +66,7 @@ public class Graph {
     }
 
     /**
+     * DEEP FIRST
      * @param v
      * @param visited
      */
@@ -85,7 +86,7 @@ public class Graph {
     }
 
     /**
-     * MESMO METODO COM OVERLOAD PARA VOLTAR TAMANHO
+     * MESMO METODO COM OVERLOAD PARA VOLTAR TAMANHO UTILIZADO NO EXERCICIO 2
      *
      * @param v
      * @param visited

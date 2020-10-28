@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 final class ComponenteConexa {
 
-    static final String COMPONENT_PATH = "/home/fdiogoc/unifil/grafos/grafos/assets/componenteConexa";
+    static final String COMPONENT_PATH = "./assets/componenteConexa";
 
     private ComponenteConexa() {
         super();
